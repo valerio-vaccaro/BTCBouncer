@@ -1,0 +1,25 @@
+[MYSQL]
+host:
+username:
+password:
+database:
+
+[BTC]
+host:
+port: 18332
+username:
+password:
+wallet: wallet.dat
+legacy:
+p2sh:
+bech32:
+
+[LTC]
+host:
+port: 19332
+username:
+password:
+wallet: wallet.dat
+legacy:
+p2sh:
+bech32: 
