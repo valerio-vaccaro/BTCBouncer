@@ -1,0 +1,5 @@
+venv
+venv3
+*.conf
+*.pyc
+__pycache__
