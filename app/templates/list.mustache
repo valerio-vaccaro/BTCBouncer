@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+     <meta charset="utf-8">
+     <meta name="description" content="BTC Bouncer">
+     <meta name="author" content="Valerio Vaccaro">
+     <link rel="icon" href="">
+     <title>₿TC Bouncer</title>
+     <link href="/static/bootstrap.min.css" rel="stylesheet">
+     <link href="/static/local.css" rel="stylesheet">
+   </head>
+   <body>
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+         <div class="container">
+           <div class="navbar-header">
+             <a class="navbar-brand" href="/">Home</a>
+             <a class="navbar-brand" href="/list">Last Tx</a>
+             <a class="navbar-brand" href="/about">Credits</a>
+           </div>
+         </div>
+      </nav>
+      <div class="container-fluid">
+         <br/><br/><br/><br/>
+         <div id="sl">
+            <br/><br/>
+            <div class="well">
+
+              <h3>Statistics</h3>
+              <p>Sent {{numtx}} transactions to {{numaddr}} different addresses for a total amount of {{total}} tBTC.</p>
+
+              <h3>Last 100 tBTC transactions</h3>
+              <table class="table table-striped">
+              <thead>
+                 <tr>
+                   <th scope="col">Timestamp</th>
+                   <th scope="col">Receiver</th>
+                   <th scope="col">Amount</th>
+                   <th scope="col">Tx</th>
+                </tr>
+              </thead>
+              <tbody>
+              {{#results}}
+                 <tr>
+                   <td>{{timestamp}}</td>
+                   <td>{{receiver}}</td>
+                   <td>{{amount}}</td>
+                   <td><a href="https://blockstream.info/testnet/{{tx}}" target="_blank">Transaction</a></td>
+                 </tr>
+              {{/results}}
+              </table>
+
+            </div>
+         </div>
+      </div>
+      </div>
+      <script src="/static/jquery.min.js"></script>
+      <script src="/static/bootstrap.min.js"></script>
+   </body>
+</html>

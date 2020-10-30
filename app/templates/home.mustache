@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+     <meta charset="utf-8">
+     <meta name="description" content="BTC Bouncer">
+     <meta name="author" content="Valerio Vaccaro">
+     <link rel="icon" href="">
+     <title>₿TC Bouncer</title>
+     <link href="/static/bootstrap.min.css" rel="stylesheet">
+     <link href="/static/local.css" rel="stylesheet">
+     <script type="text/javascript" src="/static/qrcode.min.js"></script>
+     <script type="text/javascript">
+       function copyToClipboard(element) {
+         	var $temp = $("<input>");
+         	$("body").append($temp);
+         	$temp.val($(element).text()).select();
+         	document.execCommand("copy");
+         	$temp.remove();
+       }
+     </script>
+   </head>
+   <body>
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+         <div class="container">
+           <div class="navbar-header">
+             <a class="navbar-brand" href="/">Home</a>
+             <a class="navbar-brand" href="/list">Last Tx</a>
+             <a class="navbar-brand" href="/about">Credits</a>
+           </div>
+         </div>
+      </nav>
+      <div class="container-fluid">
+         <br/><br/><br/><br/>
+         <div id="sl">
+            <br/><br/>
+            <div class="well">
+              <h3>Immediate to use</h3>
+              <p>FIRST: send us testnet BTC to one of our addresses</p>
+              <p>SECOND: wait for the transaction to be confirmed (you can check on this website)</p>
+              <p>THIRD: we will send you the same amount (to which we remove the transaction fees) to one of the addresses that sent the funds</p>
+              <br/>
+              <p>EZ!</p>
+
+               <h3>No app needed</h3>
+               <p>You don't need to install any app, send testnet BTC on our address and wait</p>
+
+               <h3>Our tBTC addresses</h3>
+               <table class="table table-striped">
+               <thead>
+                  <tr>
+                    <th scope="col">Kind</th>
+                    <th scope="col">QR</th>
+                    <th scope="col">Addess</th>
+                    <th scope="col"></th>
+                 </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                    <td>Legacy</td>
+                    <td><div id="btc1" style="width:100px; height:100px; margin-top:15px; margin-bottom:30px;"></div></td>
+                    <td><p id="btc_1"><a target="_blank" href="bitcoin:mmBJGVdpm1JitQ8NMqZXDTabrdYdJYWYL6">mmBJGVdpm1JitQ8NMqZXDTabrdYdJYWYL6</a></p></td>
+                    <td><button onclick="copyToClipboard('#btc_1')">Copy to clipboard</button></td>
+                  </tr>
+                  <tr>
+                    <th>P2SH-segwit</th>
+                    <td><div id="btc2" style="width:100px; height:100px; margin-top:15px; margin-bottom:30px;"></div></td>
+                    <td><p id="btc_2"><a target="_blank" href="bitcoin:2NDwUefHRbbHuGsumAWMbRZUzigrtBYkwrq">2NDwUefHRbbHuGsumAWMbRZUzigrtBYkwrq</a></p></td>
+                    <td><button onclick="copyToClipboard('#btc_2')">Copy to clipboard</button></td>
+                  </tr>
+                  <tr>
+                    <th>Bech32</th>
+                    <td><div id="btc3" style="width:100px; height:100px; margin-top:15px; margin-bottom:30px;"></div></td>
+                    <td><p id="btc_3"><a target="_blank" href="bitcoin:tb1qtjgzfvymjpysec35mgt826hkehv2sx8sxmt7xj">tb1qtjgzfvymjpysec35mgt826hkehv2sx8sxmt7xj</a></p></td>
+                    <td><button onclick="copyToClipboard('#btc_3')">Copy to clipboard</button></td>
+                  </tr>
+                  <tr>
+                    <th>TIP (will not bounce btc)</th>
+                    <td><div id="btctip" style="width:100px; height:100px; margin-top:15px; margin-bottom:30px;"></div></td>
+                    <td><p id="btc_tip"><a target="_blank" href="bitcoin:2NA8eSsqbuP19Li8EL95PhBXPYtwC3U8Hy2">2NA8eSsqbuP19Li8EL95PhBXPYtwC3U8Hy2</a></p></td>
+                    <td><button onclick="copyToClipboard('#btc_tip')">Copy to clipboard</button></td>
+                  </tr>
+               </tbody>
+              </table>
+
+              <script type="text/javascript">
+              new QRCode(document.getElementById("btc1"), {
+                width : 100,
+                height : 100
+              }).makeCode("bitcoin:mmBJGVdpm1JitQ8NMqZXDTabrdYdJYWYL6");
+
+              new QRCode(document.getElementById("btc2"), {
+                width : 100,
+                height : 100
+              }).makeCode("bitcoin:2NDwUefHRbbHuGsumAWMbRZUzigrtBYkwrq");
+
+              new QRCode(document.getElementById("btc3"), {
+                width : 100,
+                height : 100
+              }).makeCode("bitcoin:tb1qtjgzfvymjpysec35mgt826hkehv2sx8sxmt7xj");
+
+              new QRCode(document.getElementById("btctip"), {
+                width : 100,
+                height : 100
+              }).makeCode("bitcoin:2NA8eSsqbuP19Li8EL95PhBXPYtwC3U8Hy2");
+              </script>
+
+            </div>
+         </div>
+      </div>
+      </div>
+      <script src="/static/jquery.min.js"></script>
+      <script src="/static/bootstrap.min.js"></script>
+   </body>
+</html>
