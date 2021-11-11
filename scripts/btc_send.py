@@ -1,9 +1,9 @@
-import ConfigParser
+import configparser
 import json
 import mysql.connector
 from bitcoin_rpc_class import RPCHost
 
-config = ConfigParser.RawConfigParser()
+config = configparser.RawConfigParser()
 config.read('bouncer.conf')
 rpcHost = config.get('BTC', 'host')
 rpcPort = config.get('BTC', 'port')
@@ -38,21 +38,21 @@ if True:
         receiver = row[4]
         amount = row[5] - 0.00001000
         try:
-            print 'send transaction from '+sender+' to '+receiver+' amount '+str(amount)+' with OP_RETURN'
-            string = 'BTCBouncer.com'.encode('hex')
-            print string
-            print 'create'
+            print('send transaction from '+sender+' to '+receiver+' amount '+str(amount)+' with OP_RETURN')
+            string = 'BTCBouncer.com'.encode("utf-8").hex()
+            print(string)
+            print('create')
             raw_transaction = host.call('createrawtransaction', [] , {'data':string, receiver:str(amount)})
-            print 'fund'
+            print('fund')
             funded_raw_transaction = host.call('fundrawtransaction', raw_transaction)
-            print 'sign'
+            print('sign')
             signed_transaction = host.call('signrawtransactionwithwallet', funded_raw_transaction['hex'])
-            print 'send'
+            print('send')
             res = host.call('sendrawtransaction', signed_transaction['hex'])
-            print 'Result: '+res
+            print('Result: '+res)
         except Exception as e:
             print(e)
-            res="1"
+            res='1'
 
         try:
             mycursor2 = mydb.cursor()
@@ -60,7 +60,7 @@ if True:
             mydb.commit()
         except Exception as e:
             print(e)
-        print '---------------------------'
+        print('---------------------------')
 
-print '+++++++++++++++++++++'
+print('+++++++++++++++++++++')
 mydb.close()
