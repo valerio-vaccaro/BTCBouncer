@@ -13,6 +13,7 @@ rpcWallet = config.get('BTC', 'wallet')
 legacy = config.get('BTC', 'legacy')
 p2sh = config.get('BTC', 'p2sh')
 bech32 = config.get('BTC', 'bech32')
+p2tr = config.get('BTC', 'p2tr')
 serverURL = 'http://' + rpcUser + ':' + rpcPassword + '@'+rpcHost+':' + str(rpcPort)+'/wallet/' + rpcWallet
 
 mydb = mysql.connector.connect(
@@ -24,12 +25,12 @@ mydb = mysql.connector.connect(
 )
 
 host = RPCHost(serverURL)
-
+print('FETCH')
 # get unspended transactions
 transactions = host.call('listunspent')
 for utxo in transactions:
     if utxo['spendable']:
-        print('--- NEW TRANSACTION')
+        print('--- NEW TRANSACTION '+utxo['txid'])
         my_utxo = utxo['txid']
         my_addr = utxo['address']
         my_amount = utxo['amount']
@@ -42,7 +43,9 @@ for utxo in transactions:
             my_cmd = 'bouncer'
         elif my_addr == bech32:
             my_cmd = 'bouncer'
-        else :
+        elif my_addr == p2tr:
+            my_cmd = 'bouncer'
+        else:
             my_cmd = 'tip'
         print("\tcommand "+my_cmd)
 

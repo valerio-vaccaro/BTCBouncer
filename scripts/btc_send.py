@@ -13,6 +13,7 @@ rpcWallet = config.get('BTC', 'wallet')
 legacy = config.get('BTC', 'legacy')
 p2sh = config.get('BTC', 'p2sh')
 bech32 = config.get('BTC', 'bech32')
+p2tr = config.get('BTC', 'p2tr')
 serverURL = 'http://' + rpcUser + ':' + rpcPassword + '@'+rpcHost+':' + str(rpcPort)+'/wallet/' + rpcWallet
 
 mydb = mysql.connector.connect(
@@ -23,6 +24,7 @@ mydb = mysql.connector.connect(
 )
 
 host = RPCHost(serverURL)
+print('SEND')
 
 mycursor = mydb.cursor()
 sql = "SELECT * FROM transactions WHERE tx='' "
@@ -36,7 +38,7 @@ if True:
         timestamp = row[2]
         sender = row[3]
         receiver = row[4]
-        amount = row[5] - 0.00001000
+        amount = round(row[5] - 0.00001000, 8)
         try:
             print('send transaction from '+sender+' to '+receiver+' amount '+str(amount)+' with OP_RETURN')
             string = 'BTCBouncer.com'.encode("utf-8").hex()
@@ -44,7 +46,7 @@ if True:
             print('create')
             raw_transaction = host.call('createrawtransaction', [] , {'data':string, receiver:str(amount)})
             print('fund')
-            funded_raw_transaction = host.call('fundrawtransaction', raw_transaction)
+            funded_raw_transaction = host.call('fundrawtransaction', raw_transaction, {"fee_rate":1.1})
             print('sign')
             signed_transaction = host.call('signrawtransactionwithwallet', funded_raw_transaction['hex'])
             print('send')

@@ -58,25 +58,31 @@
                   <tr>
                     <td>Legacy</td>
                     <td><div id="btc1" style="width:100px; height:100px; margin-top:15px; margin-bottom:30px;"></div></td>
-                    <td><p id="btc_1"><a target="_blank" href="bitcoin:mmBJGVdpm1JitQ8NMqZXDTabrdYdJYWYL6">mmBJGVdpm1JitQ8NMqZXDTabrdYdJYWYL6</a></p></td>
+                    <td><p id="btc_1"><a target="_blank" href="bitcoin:mjfREKd2aBLWVfmg998WMeP5WKdvGQJ5gQ">mjfREKd2aBLWVfmg998WMeP5WKdvGQJ5gQ</a></p></td>
                     <td><button onclick="copyToClipboard('#btc_1')">Copy to clipboard</button></td>
                   </tr>
                   <tr>
                     <th>P2SH-segwit</th>
                     <td><div id="btc2" style="width:100px; height:100px; margin-top:15px; margin-bottom:30px;"></div></td>
-                    <td><p id="btc_2"><a target="_blank" href="bitcoin:2NDwUefHRbbHuGsumAWMbRZUzigrtBYkwrq">2NDwUefHRbbHuGsumAWMbRZUzigrtBYkwrq</a></p></td>
+                    <td><p id="btc_2"><a target="_blank" href="bitcoin:2MymUw4R1BLCPbo3nDrPyoGzWAF82bXjzx7">2MymUw4R1BLCPbo3nDrPyoGzWAF82bXjzx7</a></p></td>
                     <td><button onclick="copyToClipboard('#btc_2')">Copy to clipboard</button></td>
                   </tr>
                   <tr>
                     <th>Bech32</th>
                     <td><div id="btc3" style="width:100px; height:100px; margin-top:15px; margin-bottom:30px;"></div></td>
-                    <td><p id="btc_3"><a target="_blank" href="bitcoin:tb1qtjgzfvymjpysec35mgt826hkehv2sx8sxmt7xj">tb1qtjgzfvymjpysec35mgt826hkehv2sx8sxmt7xj</a></p></td>
+                    <td><p id="btc_3"><a target="_blank" href="bitcoin:tb1qq23mjaaglvcqk3aau4f3qarjwjckhqavvte8k6">tb1qq23mjaaglvcqk3aau4f3qarjwjckhqavvte8k6</a></p></td>
                     <td><button onclick="copyToClipboard('#btc_3')">Copy to clipboard</button></td>
+                  </tr>
+		  <tr>
+                    <th>P2TR</th>
+                    <td><div id="btc4" style="width:100px; height:100px; margin-top:15px; margin-bottom:30px;"></div></td>
+                    <td><p id="btc_4"><a target="_blank" href="bitcoin:tb1p69m3wdxhgekagnp085skw7hdck4egtsvr77vj5h30qgp5gzh8sjs8fnexj">tb1p69m3wdxhgekagnp085skw7hdck4egtsvr77vj5h30qgp5gzh8sjs8fnexj</a></p></td>
+                    <td><button onclick="copyToClipboard('#btc_4')">Copy to clipboard</button></td>
                   </tr>
                   <tr>
                     <th>TIP (will not bounce btc)</th>
                     <td><div id="btctip" style="width:100px; height:100px; margin-top:15px; margin-bottom:30px;"></div></td>
-                    <td><p id="btc_tip"><a target="_blank" href="bitcoin:2NA8eSsqbuP19Li8EL95PhBXPYtwC3U8Hy2">2NA8eSsqbuP19Li8EL95PhBXPYtwC3U8Hy2</a></p></td>
+                    <td><p id="btc_tip"><a target="_blank" href="bitcoin:2N44UHwEiFTFtJb7tHQhcUL49C9XtpHuJ1B">2N44UHwEiFTFtJb7tHQhcUL49C9XtpHuJ1B</a></p></td>
                     <td><button onclick="copyToClipboard('#btc_tip')">Copy to clipboard</button></td>
                   </tr>
                </tbody>
@@ -86,25 +92,30 @@
               new QRCode(document.getElementById("btc1"), {
                 width : 100,
                 height : 100
-              }).makeCode("bitcoin:mmBJGVdpm1JitQ8NMqZXDTabrdYdJYWYL6");
+              }).makeCode("bitcoin:mjfREKd2aBLWVfmg998WMeP5WKdvGQJ5gQ");
 
               new QRCode(document.getElementById("btc2"), {
                 width : 100,
                 height : 100
-              }).makeCode("bitcoin:2NDwUefHRbbHuGsumAWMbRZUzigrtBYkwrq");
+              }).makeCode("bitcoin:2MymUw4R1BLCPbo3nDrPyoGzWAF82bXjzx7");
 
               new QRCode(document.getElementById("btc3"), {
                 width : 100,
                 height : 100
-              }).makeCode("bitcoin:tb1qtjgzfvymjpysec35mgt826hkehv2sx8sxmt7xj");
+              }).makeCode("bitcoin:tb1qq23mjaaglvcqk3aau4f3qarjwjckhqavvte8k6");
+
+              new QRCode(document.getElementById("btc4"), {
+                width : 100,
+                height : 100
+              }).makeCode("bitcoin:tb1p69m3wdxhgekagnp085skw7hdck4egtsvr77vj5h30qgp5gzh8sjs8fnexj");
 
               new QRCode(document.getElementById("btctip"), {
                 width : 100,
                 height : 100
-              }).makeCode("bitcoin:2NA8eSsqbuP19Li8EL95PhBXPYtwC3U8Hy2");
+              }).makeCode("bitcoin:2N44UHwEiFTFtJb7tHQhcUL49C9XtpHuJ1B");
               </script>
 
-            </div>
+	    </div>
          </div>
       </div>
       </div>
