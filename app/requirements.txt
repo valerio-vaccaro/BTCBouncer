@@ -40,5 +40,5 @@ requests==2.31.0
 scipy==1.7.2
 six==1.16.0
 statsmodels==0.13.0
-urllib3==1.26.7
+urllib3==1.26.19
 Werkzeug==2.2.3
